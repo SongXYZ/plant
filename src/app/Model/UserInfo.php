@@ -22,7 +22,7 @@ class UserInfo extends NotORM
             $id = $orm->insert_id();
             if($rs != NULL)
             {
-                return array('code' => '1', "data" => array('uid' => $id, 'uname'=>$data['uname'], 'userphoto' => "http://fangyiming.natapp1.cc/plant/public/uploads/chushi.png"));
+                return array('code' => '1', "data" => array('uid' => $id, 'uname'=>$data['uname'], 'userphoto'=>"http://fangyiming.natapp1.cc/plant/public/uploads/chushi.png", 'record'=>[]));
             }else{
                 return array('code' => '0');
             }
