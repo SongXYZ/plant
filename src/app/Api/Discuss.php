@@ -14,23 +14,28 @@ class Discuss extends Api
             "addDiscuss" => array(
                 'uid' => array('name' => 'uid'),
                 'content' => array('name' => 'content'),
-		'filebase64' => array('name' => 'file'),
-		// 'filebase64' => array(
-                //    'name' => 'file',        // 客户端上传的文件字段
-                //    'type' => 'file',
-		//    'require' => true,
-	    	// )
+                'file' => array(
+                    'name' => 'file',        // 客户端上传的文件字段
+                    'type' => 'file', 
+                    'require' => true,
+                ),
+		        // 'filebase64' => array('name' => 'file'),
+                // 'filebase64' => array(
+                        //    'name' => 'file',        // 客户端上传的文件字段
+                        //    'type' => 'file',
+                //    'require' => true,
+                    // )
             ),
             'myDiscuss' => array(
                 'uid' => array('name' => 'uid')
 	    ),
 	    'test' => array(
 	    	'file' => array(
-		    'name' => 'file',
-		    'type' => 'file',
-		    'require' => true,
-		)
-	    )
+                'name' => 'file',
+                'type' => 'file',
+                'require' => true,
+		        )   
+	        )
         );
     }
     
@@ -39,9 +44,9 @@ class Discuss extends Api
      */
     public function test()
     {
-	$upload_file = new \App\Api\Examples\Upload();
-	$imageName = $upload_file->gogo($this->file);
-	return $imageName;
+        $upload_file = new \App\Api\Examples\Upload();
+        $imageName = $upload_file->gogo($this->file);
+        return $imageName;
     }
 
     /**
@@ -50,7 +55,8 @@ class Discuss extends Api
     public function addDiscuss()
     {
         $upload_file = new \App\Api\Examples\Upload();
-        $imageName = $upload_file->go($this->filebase64);  // 返回文件名
+        // $imageName = $upload_file->go($this->filebase64);  // 返回文件名
+        $imageName = $upload_file->gogo($this->file);  // 返回文件名
         // return $imageName;
         $discussimage = sprintf('http://fangyiming.natapp1.cc/plant/public/uploads/%s', $imageName);
         $domain = new \App\Domain\Discuss();

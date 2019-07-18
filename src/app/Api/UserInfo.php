@@ -19,7 +19,11 @@ class UserInfo extends Api {
                 'pswd' => array('name' => 'pswd', 'require' => true, 'min' => 6, 'max' => 20, 'desc' => '密码'),
             ),
             'setUserPhoto' => array(
-                'filebase64' => array('name' => 'file'),
+                'file' => array(
+                    'name' => 'file',        // 客户端上传的文件字段
+                    'type' => 'file', 
+                    'require' => true,
+                ),
                 'uid' => array('name' => 'uid')
 	    ),
 	    'up' => array(
@@ -58,7 +62,8 @@ class UserInfo extends Api {
     public function setUserPhoto()
     {
         $upload_file = new \App\Api\Examples\Upload();
-        $imageName = $upload_file->go($this->filebase64);  // 返回文件名
+        // $imageName = $upload_file->go($this->filebase64);  // 返回文件名
+        $imageName = $upload_file->gogo($this->file);  // 返回文件名
         $userphoto = sprintf('http://fangyiming.natapp1.cc/plant/public/uploads/%s', $imageName);
         $domain = new \App\Domain\UserInfo();
         $rs = $domain->setUserPhoto($this->uid, $userphoto);

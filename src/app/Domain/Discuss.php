@@ -10,7 +10,7 @@ class Discuss
     {
         $model = new \App\Model\Discuss();
         $data = \App\obj_array($data);
-        unset($data['filebase64']);  // 将file弹出数组
+        unset($data['file']);  // 将file弹出数组
         $data['discussimage'] = $discussimage;
         // return $data;
         $rs = $model->addDiscuss($data);

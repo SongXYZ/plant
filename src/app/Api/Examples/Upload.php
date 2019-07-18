@@ -64,7 +64,7 @@ class Upload extends Api {
 
         $name = md5($file['name'] . $_SERVER['REQUEST_TIME']).'.jpeg';
         // $ext = strrchr($file['name'], '.');
-        $uploadFolder = sprintf('%s/public/testimage/', API_ROOT);
+        $uploadFolder = sprintf('%s/public/uploads/', API_ROOT);
         if (!is_dir($uploadFolder)) {
             mkdir($uploadFolder, 0777);
         }
