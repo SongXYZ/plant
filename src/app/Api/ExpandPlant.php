@@ -17,7 +17,7 @@ class ExpandPlant extends Api {
                 //     'type' => 'file', 
                 //     'require' => true,
                 // ),
-                'filebase64' => array('name' => 'plantbase64')
+                'plantbase64' => array('name' => 'plantbase64')
             )
         );
 
@@ -61,7 +61,7 @@ class ExpandPlant extends Api {
         }
         $imageSrc= $path . $imageName;  // 图片路径
         // return $imageSrc;
-        $r = file_put_contents($imageSrc, base64_decode($this->filebase64));
+        $r = file_put_contents($imageSrc, base64_decode($this->plantbase64));
         if(!$r)
         {
             return array('code' => '0');
