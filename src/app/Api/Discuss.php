@@ -20,7 +20,7 @@ class Discuss extends Api
                 //     'require' => true,
                 // ),
 		        
-                'filebase64' => array('name' => 'file')
+                'file' => array('name' => 'file')
             ),
             'myDiscuss' => array(
                 'uid' => array('name' => 'uid')
@@ -51,7 +51,7 @@ class Discuss extends Api
     public function addDiscuss()
     {
         $upload_file = new \App\Api\Examples\Upload();
-        $imageName = $upload_file->go($this->filebase64);  // 返回文件名
+        $imageName = $upload_file->go($this->file);  // 返回文件名
         // $imageName = $upload_file->gogo($this->file);  // 返回文件名
         // return $imageName;
         $discussimage = sprintf('http://fangyiming.natapp1.cc/plant/public/uploads/%s', $imageName);
