@@ -20,11 +20,7 @@ class Discuss extends Api
                 //     'require' => true,
                 // ),
 		        
-                'filebase64' => array(
-                    'name' => 'file',        // 客户端上传的文件字段
-                    'type' => 'file',
-                    'require' => true,
-                    )
+                'filebase64' => array('name' => 'file')
             ),
             'myDiscuss' => array(
                 'uid' => array('name' => 'uid')
