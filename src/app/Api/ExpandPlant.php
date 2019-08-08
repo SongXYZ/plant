@@ -69,7 +69,7 @@ class ExpandPlant extends Api {
             $expandplantpath = sprintf('http://fangyiming.natapp1.cc/plant/public/expandphoto/%s/%s', $this->plantname, $imageName);
             // return $expandplantpath;
             $domain = new \App\Domain\ExpandPlant();
-            $rs = $domain->addPlantPhoto($this->uid, $this->lantname, $expandplantpath);
+            $rs = $domain->addPlantPhoto($this->uid, $this->plantname, $expandplantpath);
             return $rs;
         }
     }
